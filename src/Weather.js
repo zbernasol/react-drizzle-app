@@ -1,11 +1,13 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
+import Loader from "react-loader-spinner";
 import axios from "axios";
 import "./Weather.css";
 
 
-export default function Weather(props) {
-    const [weatherData, setWeatherData] = useState({ready : false});
 
+export default function Weather(props) {
+    const [weatherData, setWeatherData] = useState({ready: false});
     function handleResponse(response) {
         console.log(response.data);
         setWeatherData({
@@ -14,16 +16,13 @@ export default function Weather(props) {
             humidity: response.data.main.humidity,
             wind: response.data.wind.speed, 
             city: response.data.name,
-            date: "Sunday 02:20pm",
+            date: new Date(response.data.dt * 1000),
             iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
             description: response.data.weather[0].description
-
-        });
-    
+        });  
     }
 
     if (weatherData.ready) {
-
         return (
         <div className="Weather">
             <form>
@@ -38,7 +37,9 @@ export default function Weather(props) {
             </form>
             <h1>{props.currentCity}</h1>
             <ul>
-                <li>{weatherData.date}</li>
+                <li>
+                    <FormattedDate date={weatherData.date} />
+                </li>
                 <li className="text-capitalize">{weatherData.description}</li>
             </ul>
 
@@ -48,8 +49,7 @@ export default function Weather(props) {
                         <img src={weatherData.iconUrl} alt={weatherData.description} className="float-left" />
 
                             <span className="temperature">{Math.round(weatherData.temperature)}</span>
-                            <span className="unit">°C</span>
-                           
+                            <span className="unit">°C</span>                        
                     </div>
                 </div>
                 <div className="col-5">
@@ -59,7 +59,6 @@ export default function Weather(props) {
                     </ul>
                 </div>
             </div>
-
         </div>
     );
 
@@ -68,7 +67,14 @@ export default function Weather(props) {
         let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${props.currentCity}&appid=${apiKey}&units=metric`;
         axios.get(apiUrl).then(handleResponse);
 
-        return "Loading...";
+        return (
+                <Loader
+                    type="Puff"
+                    color="#00BFFF"
+                    height={100}
+                    width={100}
+                />
+            );
     }
 
 }
