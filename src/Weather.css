@@ -4,7 +4,14 @@
   color: #ffca2c;
   font-family: Arial, Helvetica, sans-serif;
   padding: 16px;
-  border-radius: 15px;
+  border-radius: 20px;
+}
+
+.Weather .form-control,
+.btn-warning {
+  color: #1e3d59;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 .Weather h1 {
@@ -31,7 +38,7 @@
   height: 80px;
   width: 80px;
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 5px;
   margin-top: -40px;
 }
 
@@ -48,5 +55,4 @@
   position: relative;
   line-height: 1;
   top: -34px;
-  margin-left: 5px;
 }

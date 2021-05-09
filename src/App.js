@@ -9,7 +9,7 @@ export default function App() {
     <div className="App">
       <div className="container">
         <h1>Drizzle</h1>
-        <Weather />
+        <Weather currentCity="Toronto"/>
         <footer>
           
           <a href="https://github.com/zbernasol/react-drizzle-app" target="_blank" >
