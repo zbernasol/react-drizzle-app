@@ -22,7 +22,7 @@ export default function Weather() {
             </ul>
 
             <div className="row mt-4">
-                <div className="col-8">
+                <div className="col-7">
                     <div className="clearfix">
                         <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Partly Cloudy" className="float-left" />
 
@@ -31,7 +31,7 @@ export default function Weather() {
                            
                     </div>
                 </div>
-                <div className="col-4">
+                <div className="col-5">
                     <ul>
                         <li>Precipitation: 17%</li>
                         <li>Humidity: 47%</li>
