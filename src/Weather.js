@@ -70,7 +70,7 @@ export default function Weather(props) {
         return (
                 <Loader
                     type="Puff"
-                    color="#00BFFF"
+                    color="#c66b3d"
                     height={100}
                     width={100}
                 />
