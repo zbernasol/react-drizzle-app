@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import FormattedDate from "./FormattedDate";
 import Loader from "react-loader-spinner";
 import axios from "axios";
 import "./Weather.css";
+import WeatherInfo from "./WeatherInfo";
 
 
 
 export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ready: false});
     function handleResponse(response) {
-        console.log(response.data);
         setWeatherData({
             ready: true,
             temperature: response.data.main.temp,
@@ -35,30 +34,8 @@ export default function Weather(props) {
                     </div>
                 </div>
             </form>
-            <h1>{props.currentCity}</h1>
-            <ul>
-                <li>
-                    <FormattedDate date={weatherData.date} />
-                </li>
-                <li className="text-capitalize">{weatherData.description}</li>
-            </ul>
-
-            <div className="row mt-4">
-                <div className="col-7">
-                    <div className="clearfix">
-                        <img src={weatherData.iconUrl} alt={weatherData.description} className="float-left" />
-
-                            <span className="temperature">{Math.round(weatherData.temperature)}</span>
-                            <span className="unit">°C</span>                        
-                    </div>
-                </div>
-                <div className="col-5">
-                    <ul>
-                        <li>Humidity: {weatherData.humidity}%</li>
-                        <li>Wind: {weatherData.wind}km/h</li>
-                    </ul>
-                </div>
-            </div>
+            <WeatherInfo data={weatherData}/>
+            
         </div>
     );
 
