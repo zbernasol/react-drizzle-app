@@ -12,9 +12,9 @@ export default function App() {
         <Weather currentCity="Toronto"/>
         <footer>
           
-          <a href="https://github.com/zbernasol/react-drizzle-app" target="_blank" >
+          <a href="https://github.com/zbernasol/react-drizzle-app" target="_blank" rel="noreferrer" >
             Open-source
-          </a> code by <a href="https://www.linkedin.com/in/zian-angelica-bernasol-6a190a113/" target="_blank">Zian Bernasol</a>
+          </a> code by <a href="https://www.linkedin.com/in/zian-angelica-bernasol-6a190a113/" target="_blank" rel="noreferrer">Zian Bernasol</a>
         </footer>
       </div>
     </div>
