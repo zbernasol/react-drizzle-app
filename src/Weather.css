@@ -10,6 +10,8 @@
 .Weather .button-search {
   background-color: #d9a5b3;
   border-radius: 5px;
+  position: relative;
+  bottom: -5px;
 }
 
 .Weather h1 {
